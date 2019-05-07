@@ -39,18 +39,17 @@ app.layout = html.Div(children=[
     html.H1('Parans Beta'),
     
     html.Label('Choose Lightsource'),
+    
     dcc.Dropdown(
         options=[
-            {'label': 'Unfiltered Daylight', 'value': 'UFD'},
-            {'label': 'Daylight through Parans 50m', 'value': 'P50M'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'}
-            {'label': 'Daylight through 2-pane solar control glass', 'value': 'SG'}
-            {'label': 'Cool white LED', 'value': 'CLED'}
-            {'label': 'Warm white LED', 'value': 'WLED'}
+            {'label': 'New York City', 'value': 'NYC'},
+            {'label': u'Montréal', 'value': 'MTL'},
+            {'label': 'San Francisco', 'value': 'SF'}
         ],
-        value=['UFD'],
+        value=['MTL', 'SF'],
         multi=True
     ),
+    
     
     dcc.Graph(
         id='flyingdog',
