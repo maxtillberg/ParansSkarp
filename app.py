@@ -27,9 +27,10 @@ bitterness = go.Scatter(
     name='IBU',
     marker={'color':'red'}
 )
-alcohol = go.Bar(
+alcohol = go.Scatter(
     x=beers,
     y=[5.4, 7.1, 9.2, 4.3],
+    mode = 'lines',
     name='ABV',
     marker={'color':'blue'}
 )
