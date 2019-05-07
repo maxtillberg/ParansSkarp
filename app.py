@@ -20,9 +20,10 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
 
-bitterness = go.Bar(
+bitterness = go.Scatter(
     x=beers,
     y=[35, 60, 85, 75],
+    mode = 'lines',
     name='IBU',
     marker={'color':'red'}
 )
@@ -36,7 +37,7 @@ alcohol = go.Bar(
 beer_data = [bitterness, alcohol]
 beer_layout = go.Layout(
     barmode='group',
-    title = 'Beer Comparison'
+    title = 'Liiiiight!!!'
 )
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
