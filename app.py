@@ -11,6 +11,11 @@ app = dash.Dash(__name__)
 server = app.server
 
 
+app.layout = dash_table.DataTable(
+    id='table',
+    columns=[{"name": i, "id": i} for i in df1.columns],
+    data=df1.to_dict("rows"),
+)
 
 dcc.Checklist(
     options=[
@@ -22,12 +27,6 @@ dcc.Checklist(
 )
 
 
-
-app.layout = dash_table.DataTable(
-    id='table',
-    columns=[{"name": i, "id": i} for i in df1.columns],
-    data=df1.to_dict("rows"),
-)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
