@@ -44,9 +44,10 @@ app.layout = html.Div(children=[
         options=[
             {'label': 'Unfiltered daylight', 'value': 'UFD'},
             {'label': u'Daylight through Parans 50m', 'value': 'MTL'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'SF'}
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'}
         ],
-        value=['UFD', 'SF'],
+        value=['UFD', 'TG'],
         multi=True
     ),
     
