@@ -43,8 +43,8 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         options=[
             {'label': 'Unfiltered daylight', 'value': 'NYC'},
-            {'label': u'Montréal', 'value': 'MTL'},
-            {'label': 'San Francisco', 'value': 'SF'}
+            {'label': u'Daylight through Parans 50m', 'value': 'MTL'},
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'SF'}
         ],
         value=['MTL', 'SF'],
         multi=True
