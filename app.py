@@ -32,7 +32,7 @@ beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 ########### Display the chart
 
-app = dash.Dash()
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 app.layout = html.Div(children=[
