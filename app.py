@@ -12,7 +12,7 @@ df = pd.read_csv(
     'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
     'usa-agricultural-exports-2011.csv')
 
-df_test = df[1:5]
+df_test = pd.read_csv('https://github.com/maxtillberg/ParansBeta/blob/master/testspektra.csv')
 
 ########### Set up the chart
 
