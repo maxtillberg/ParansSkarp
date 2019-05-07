@@ -37,6 +37,18 @@ server = app.server
 
 app.layout = html.Div(children=[
     html.H1('Choose lightsource'),
+    
+    html.Label('Multi-Select Dropdown'),
+    
+    dcc.Dropdown(
+        options=[
+            {'label': 'New York City', 'value': 'NYC'},
+            {'label': u'Montréal', 'value': 'MTL'},
+            {'label': 'San Francisco', 'value': 'SF'}
+        ],
+        value=['MTL', 'SF'],
+        multi=True
+    
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
