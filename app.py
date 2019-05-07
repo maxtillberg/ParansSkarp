@@ -45,9 +45,11 @@ app.layout = html.Div(children=[
             {'label': 'Unfiltered daylight', 'value': 'UFD'},
             {'label': u'Daylight through Parans 50m', 'value': 'MTL'},
             {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'}
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
+            {'label': 'Cool white LED', 'value': 'CLED'},
+            {'label': 'Warm white LED', 'value': 'WLED'}
         ],
-        value=['UFD', 'TG'],
+        value=['UFD'],
         multi=True
     ),
     
