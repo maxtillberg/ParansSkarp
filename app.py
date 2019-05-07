@@ -4,6 +4,9 @@ import dash_html_components as html
 import plotly.graph_objs as go
 
 ########### Set up the chart
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
 
 bitterness = go.Bar(
@@ -33,7 +36,7 @@ app = dash.Dash()
 server = app.server
 
 app.layout = html.Div(children=[
-    html.H1('Flying Dog Beers'),
+    html.H1('Choose lightsource'),
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
