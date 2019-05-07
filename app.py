@@ -5,13 +5,11 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 #df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
-df = pd.read_csv('2011_us_ag_exports.csv')
-df1 = df[1:5]
-app = dash.Dash(__name__)
+#df = pd.read_csv('2011_us_ag_exports.csv')
+#df1 = df[1:5]
+#app = dash.Dash(__name__)
 
-server = app.server
-
-
+#server = app.server
 
 
 
