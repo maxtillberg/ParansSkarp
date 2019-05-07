@@ -2,6 +2,17 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
+import pandas as pd
+
+########### Get Data
+
+df = pd.read_csv(
+    'https://gist.githubusercontent.com/chriddyp/'
+    'c78bf172206ce24f77d6363a2d754b59/raw/'
+    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
+    'usa-agricultural-exports-2011.csv')
+
+df_test = df[1:5]
 
 ########### Set up the chart
 
@@ -43,7 +54,7 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         options=[
             {'label': 'Unfiltered daylight', 'value': 'UFD'},
-            {'label': u'Daylight through Parans 50m', 'value': 'MTL'},
+            {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
             {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
             {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
             {'label': 'Cool white LED', 'value': 'CLED'},
