@@ -46,7 +46,7 @@ app.layout = html.Div(children=[
             {'label': u'Daylight through Parans 50m', 'value': 'MTL'},
             {'label': 'Daylight through 2-pane thermal glass', 'value': 'SF'}
         ],
-        value=['MTL', 'SF'],
+        value=['NYC', 'SF'],
         multi=True
     ),
     
