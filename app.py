@@ -95,7 +95,7 @@ app.layout = html.Div(children=[
             {'label': 'Cool white LED', 'value': 'CLED_df'},
             {'label': 'Warm white LED', 'value': 'WLED_df'}
         ],
-        value=['UFD'],
+        value=['UFD_df'],
         multi=True
     ),
     
@@ -116,6 +116,8 @@ app.layout = html.Div(children=[
 def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
 
+def callback_a(input_value):
+    return Spectra_data = input_value
 
 ########### Run app!
 
