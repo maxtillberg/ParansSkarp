@@ -19,16 +19,14 @@ df_test = pd.read_csv('testspektra.csv')
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-#beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-
-bitterness = go.Scatter(
+UFD_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.UFD,
     mode = 'lines',
     name='UFD',
     marker={'color':'red'}
 )
-alcohol = go.Scatter(
+P50M_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.P50M,
     mode = 'lines',
@@ -36,7 +34,7 @@ alcohol = go.Scatter(
     marker={'color':'blue'}
 )
 
-Spectra_data = [bitterness, alcohol]
+Spectra_data = [UFD_df, P50M_df]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
@@ -44,6 +42,8 @@ Spectra_layout = go.Layout(
 
 Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
+
+#, TG_df, SPG_df, CLED_df, WLED_df
 ########### Display the chart
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
