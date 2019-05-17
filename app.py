@@ -19,20 +19,20 @@ df_test = pd.read_csv('testspektra.csv')
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
+#beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
 
 bitterness = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.UFD,
     mode = 'lines',
-    name='IBU',
+    name='UFD',
     marker={'color':'red'}
 )
 alcohol = go.Scatter(
-    x=beers,
-    y=[5.4, 7.1, 9.2, 4.3],
+    x=df_test.Wavelength_nm,
+    y=df_test.P50M,
     mode = 'lines',
-    name='ABV',
+    name='P50M',
     marker={'color':'blue'}
 )
 
