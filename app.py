@@ -80,9 +80,8 @@ server = app.server
 app.layout = html.Div(children=[
     html.H1('Parans Beta'),
     
-    dcc.Input(id='my-id', value='initial value', type='text'),
+    #dcc.Input(id='my-id', value='initial value', type='text'),
     
-    html.Div(id='my-div'),
     
     html.Label('Choose Lightsource'),
     
@@ -100,6 +99,7 @@ app.layout = html.Div(children=[
         multi=True
     ),
     
+    html.Div(id='my-div'),
     
     dcc.Graph(
         id='flyingdog',
