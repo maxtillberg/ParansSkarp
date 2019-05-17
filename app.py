@@ -79,6 +79,8 @@ server = app.server
 app.layout = html.Div(children=[
     html.H1('Parans Beta'),
     
+    html.H1('Testa callbacks'),
+    
     html.Label('Choose Lightsource'),
     
     dcc.Dropdown(
