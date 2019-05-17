@@ -88,12 +88,12 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='droplista',
         options=[
-            {'label': 'Unfiltered daylight', 'value': 'UFD'},
-            {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
-            {'label': 'Cool white LED', 'value': 'CLED'},
-            {'label': 'Warm white LED', 'value': 'WLED'}
+            {'label': 'Unfiltered daylight', 'value': 'UFD_df'},
+            {'label': u'Daylight through Parans 50m', 'value': 'P50M_df'},
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG_df'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG_df'},
+            {'label': 'Cool white LED', 'value': 'CLED_df'},
+            {'label': 'Warm white LED', 'value': 'WLED_df'}
         ],
         value=['UFD'],
         multi=True
