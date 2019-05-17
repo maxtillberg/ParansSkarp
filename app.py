@@ -36,13 +36,13 @@ alcohol = go.Scatter(
     marker={'color':'blue'}
 )
 
-beer_data = [bitterness, alcohol]
-beer_layout = go.Layout(
+Spectra_data = [bitterness, alcohol]
+Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
 )
 
-beer_fig = go.Figure(data=beer_data, layout=beer_layout)
+Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
 ########### Display the chart
 
@@ -70,7 +70,7 @@ app.layout = html.Div(children=[
     
     dcc.Graph(
         id='flyingdog',
-        figure=beer_fig
+        figure=Spectra_fig
     )]
 )
 
