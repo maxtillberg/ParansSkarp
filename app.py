@@ -13,7 +13,7 @@ df = pd.read_csv(
     'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
-print(df_test)
+
 
 ########### Set up the chart
 
@@ -22,8 +22,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
 
 bitterness = go.Scatter(
-    x=beers,
-    y=[35, 60, 85, 75],
+    x=df_test.Wavelength_nm,
+    y=df_test.UFD,
     mode = 'lines',
     name='IBU',
     marker={'color':'red'}
