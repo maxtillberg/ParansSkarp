@@ -33,8 +33,36 @@ P50M_df = go.Scatter(
     name='P50M',
     marker={'color':'blue'}
 )
+TG_df = go.Scatter(
+    x=df_test.Wavelength_nm,
+    y=df_test.TG,
+    mode = 'lines',
+    name='TG',
+    marker={'color':'blue'}
+)
+SPG_df = go.Scatter(
+    x=df_test.Wavelength_nm,
+    y=df_test.SPG,
+    mode = 'lines',
+    name='SPG',
+    marker={'color':'blue'}
+)
+CLED_df = go.Scatter(
+    x=df_test.Wavelength_nm,
+    y=df_test.CLED,
+    mode = 'lines',
+    name='CLED',
+    marker={'color':'blue'}
+)
+WLED_df = go.Scatter(
+    x=df_test.Wavelength_nm,
+    y=df_test.WLED,
+    mode = 'lines',
+    name='WLED',
+    marker={'color':'blue'}
+)
 
-Spectra_data = [UFD_df, P50M_df]
+Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df, CLED_df, WLED_df]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
@@ -43,7 +71,6 @@ Spectra_layout = go.Layout(
 Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
 
-#, TG_df, SPG_df, CLED_df, WLED_df
 ########### Display the chart
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
