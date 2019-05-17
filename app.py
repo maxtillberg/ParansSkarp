@@ -87,6 +87,7 @@ app.layout = html.Div(children=[
     html.Label('Choose Lightsource'),
     
     dcc.Dropdown(
+        id='droplista',
         options=[
             {'label': 'Unfiltered daylight', 'value': 'UFD'},
             {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
@@ -110,7 +111,7 @@ app.layout = html.Div(children=[
 
 @app.callback(
     Output(component_id='my-div', component_property='children'),
-    [Input(component_id='my-id', component_property='value')]
+    [Input(component_id='droplista', component_property='value')]
 )
 def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
