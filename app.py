@@ -13,6 +13,7 @@ df = pd.read_csv(
     'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
+print(df_test)
 
 ########### Set up the chart
 
