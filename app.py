@@ -103,8 +103,10 @@ app.layout = html.Div(children=[
     html.Div(id='my-div'),
     
     dcc.Graph(
-        id='flyingdog',
-        figure=Spectra_fig
+        id='flyingdog'
+        
+#        ,
+#        figure=Spectra_fig
     )]
 )
 
@@ -122,10 +124,10 @@ def update_output_div(input_value):
     [Input(component_id='droplista', component_property='value')]
 )
 def update_figure(valdData):
-    return {
+  return {
         'data': valdData,
-#        'layout': Spectra_layout
-    }
+        'layout':Spectra_layout
+       }
 
 ########### Run app!
 
