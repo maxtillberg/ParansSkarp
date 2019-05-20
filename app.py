@@ -110,11 +110,28 @@ app.layout = html.Div(children=[
 ########### Callbacks!
 
 @app.callback(
-    Output(component_id='my-div', component_property='children'),
+    Output(component_id='flyingdog', component_property='figure'),
     [Input(component_id='droplista', component_property='value')]
 )
 def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
+
+
+@app.callback(
+    Output('flyingdog', 'figure'),
+    [Input(component_id='droplista', component_property='value')]
+)
+def update_figure(valdData):
+    filtreradData = valdData
+    
+
+    return {
+        go.Figure(data=filtreradData, layout=Spectra_layout)
+    }
+
+
+
+
 
 #def callback_a(input_value):
 #    return Spectra_data = input_value
