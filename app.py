@@ -103,10 +103,8 @@ app.layout = html.Div(children=[
     html.Div(id='my-div'),
     
     dcc.Graph(
-        id='flyingdog'
-        
-#        ,
-#        figure=Spectra_fig
+        id='flyingdog',
+        figure=Spectra_fig
     )]
 )
 
@@ -119,15 +117,6 @@ app.layout = html.Div(children=[
 def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
 
-@app.callback(
-    Output('flyingdog', 'figure'),
-    [Input(component_id='droplista', component_property='value')]
-)
-def update_figure(valdData):
-  return {
-        'data': valdData,
-        'layout':Spectra_layout
-       }
 
 ########### Run app!
 
