@@ -117,24 +117,6 @@ def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
 
 
-@app.callback(
-    Output('flyingdog', 'figure'),
-    [Input(component_id='droplista', component_property='value')]
-)
-def update_figure(valdData):
-    filtreradData = valdData
-    
-
-    return {
-        go.Figure(data=filtreradData, layout=Spectra_layout)
-    }
-
-
-
-
-
-#def callback_a(input_value):
-#    return Spectra_data = input_value
 
 ########### Run app!
 
