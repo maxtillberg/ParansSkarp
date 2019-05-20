@@ -110,7 +110,7 @@ app.layout = html.Div(children=[
 ########### Callbacks!
 
 @app.callback(
-    Output(component_id='flyingdog', component_property='figure'),
+    Output(component_id='my-div', component_property='children'),
     [Input(component_id='droplista', component_property='value')]
 )
 def update_output_div(input_value):
