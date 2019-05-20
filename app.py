@@ -63,7 +63,7 @@ WLED_df = go.Scatter(
     marker={'color':'blue'}
 )
 
-pectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
+Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
 #Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df, CLED_df, WLED_df]
 Spectra_layout = go.Layout(
     barmode='group',
