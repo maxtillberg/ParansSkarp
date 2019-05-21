@@ -8,12 +8,6 @@ from textwrap import dedent
 
 ########### Get Data
 
-#df = pd.read_csv(
-#    'https://gist.githubusercontent.com/chriddyp/'
-#    'c78bf172206ce24f77d6363a2d754b59/raw/'
-#    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
- #   'usa-agricultural-exports-2011.csv')
-
 df_test = pd.read_csv('testspektra.csv')
 
 
@@ -29,42 +23,42 @@ df = df.rename(index=str, columns={"pop": "population",
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-UFD_df = go.Scatter(
+UFD = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.UFD,
     mode = 'lines',
     name='UFD',
     marker={'color':'red'}
 )
-P50M_df = go.Scatter(
+P50M = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.P50M,
     mode = 'lines',
     name='P50M',
     marker={'color':'blue'}
 )
-TG_df = go.Scatter(
+TG = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.TG,
     mode = 'lines',
     name='TG',
     marker={'color':'blue'}
 )
-SPG_df = go.Scatter(
+SPG = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.SPG,
     mode = 'lines',
     name='SPG',
     marker={'color':'blue'}
 )
-CLED_df = go.Scatter(
+CLED = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.CLED,
     mode = 'lines',
     name='CLED',
     marker={'color':'blue'}
 )
-WLED_df = go.Scatter(
+WLED = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.WLED,
     mode = 'lines',
@@ -72,14 +66,13 @@ WLED_df = go.Scatter(
     marker={'color':'blue'}
 )
 
-Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
-#Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df, CLED_df, WLED_df]
+
+Spectra_data = [UFD, P50M, TG, SPG, CLED, WLED]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
 )
 
-#Spectra_fig = go.Figure(data=[UFD_df, P50M_df], layout=Spectra_layout)
 Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
 ########### Display the chart
@@ -98,14 +91,14 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='droplista',
         options=[
-            {'label': 'Unfiltered daylight', 'value': 'UFD_df'},
-            {'label': u'Daylight through Parans 50m', 'value': 'P50M_df'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG_df'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG_df'},
-            {'label': 'Cool white LED', 'value': 'CLED_df'},
-            {'label': 'Warm white LED', 'value': 'WLED_df'}
+            {'label': 'Unfiltered daylight', 'value': 'UFD'},
+            {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
+            {'label': 'Cool white LED', 'value': 'CLED'},
+            {'label': 'Warm white LED', 'value': 'WLED'}
         ],
-        value=['UFD_df'],
+        value=['UFD'],
         multi=True
     ),
     
@@ -113,7 +106,7 @@ app.layout = html.Div(children=[
     
     
     dcc.Graph(
-        id='flyingdog',
+        id='spektra',
         figure=Spectra_fig
     ),
 
