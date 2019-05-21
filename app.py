@@ -28,42 +28,42 @@ df = df.rename(index=str, columns={"pop": "population",
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-UFD_df = go.Scatter(
+UFD = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.UFD,
     mode = 'lines',
     name='UFD',
     marker={'color':'red'}
 )
-P50M_df = go.Scatter(
+P50M = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.P50M,
     mode = 'lines',
     name='P50M',
     marker={'color':'blue'}
 )
-TG_df = go.Scatter(
+TG = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.TG,
     mode = 'lines',
     name='TG',
     marker={'color':'blue'}
 )
-SPG_df = go.Scatter(
+SPG = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.SPG,
     mode = 'lines',
     name='SPG',
     marker={'color':'blue'}
 )
-CLED_df = go.Scatter(
+CLED = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.CLED,
     mode = 'lines',
     name='CLED',
     marker={'color':'blue'}
 )
-WLED_df = go.Scatter(
+WLED = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.WLED,
     mode = 'lines',
@@ -71,8 +71,8 @@ WLED_df = go.Scatter(
     marker={'color':'blue'}
 )
 
-Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
-#Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df, CLED_df, WLED_df]
+#Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
+Spectra_data = [UFD, P50M, TG, SPG, CLED, WLED]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
