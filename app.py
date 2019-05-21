@@ -112,7 +112,8 @@ app.layout = html.Div(children=[
     
     
     dcc.Graph(
-        id='spektra'
+        id='spektra',
+        figure= Spectra_fig
     ),
 
     dcc.Dropdown(
