@@ -141,8 +141,8 @@ def update_graph(country_values):
         'data': [go.Scatter(
             x=dff[dff['country'] == country]['year'],
             y=dff[dff['country'] == country]['GDP_per_capita'],
-            text="Continent: " +
-                  f"{dff[dff['country'] == country]['continent'].unique()[0]}",
+#            text="Continent: " +
+#                  f"{dff[dff['country'] == country]['continent'].unique()[0]}",
             mode='lines+markers',
             name=country,
             marker={
