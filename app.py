@@ -138,6 +138,36 @@ def update_output_div(input_value):
     return 'You\'ve entered "{}"'.format(input_value)
 
 
+@app.callback(
+    dash.dependencies.Output('timeseries-graph', 'figure'),
+    [dash.dependencies.Input('country-dropdown', 'value')])
+def update_graph(country_values):
+    dff = df.loc[df['country'].isin(country_values)]
+
+    return {
+        'data': [go.Scatter(
+            x=dff[dff['country'] == country]['year'],
+            y=dff[dff['country'] == country]['GDP_per_capita'],
+            text="Continent: " +
+                  f"{dff[dff['country'] == country]['continent'].unique()[0]}",
+            mode='lines+markers',
+            name=country,
+            marker={
+                'size': 15,
+                'opacity': 0.5,
+                'line': {'width': 0.5, 'color': 'white'}
+            }
+        ) for country in dff.country.unique()],
+        'layout': go.Layout(
+            title="GDP over time, by country",
+            xaxis={'title': 'Year'},
+            yaxis={'title': 'GDP Per Capita'},
+            margin={'l': 60, 'b': 50, 't': 80, 'r': 0},
+            hovermode='closest'
+        )
+    } 
+ 
+ 
 ########### Run app!
 
 
