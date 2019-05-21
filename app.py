@@ -117,12 +117,14 @@ app.layout = html.Div(children=[
         figure=Spectra_fig
     ),
 
-dcc.Dropdown(
+    dcc.Dropdown(
         id='country-dropdown',
         options=[{'label': i, 'value': i} for i in df.country.unique()],
         multi=True,
         value=['Australia']
-    )
+    ),
+   
+    dcc.Graph(id='timeseries-graph')
 ]
 )
 
