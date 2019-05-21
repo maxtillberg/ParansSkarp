@@ -4,6 +4,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import pandas as pd
+from textwrap import dedent
 
 ########### Get Data
 
@@ -14,6 +15,8 @@ df = pd.read_csv(
     'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
+
+
 
 
 ########### Set up the chart
@@ -101,6 +104,15 @@ app.layout = html.Div(children=[
     ),
     
     html.Div(id='my-div'),
+    
+     dcc.Dropdown(
+        id='country-dropdown',
+        options=[{'label': i, 'value': i} for i in df.country.unique()],
+        multi=True,
+        value=['Australia']
+    ),
+
+    dcc.Graph(id='timeseries-graph')
     
     dcc.Graph(
         id='flyingdog',
