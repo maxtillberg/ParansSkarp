@@ -115,7 +115,15 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='flyingdog',
         figure=Spectra_fig
-    )]
+    ),
+
+dcc.Dropdown(
+        id='country-dropdown',
+        options=[{'label': i, 'value': i} for i in df.country.unique()],
+        multi=True,
+        value=['Australia']
+    )
+]
 )
 
 ########### Callbacks!
