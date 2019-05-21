@@ -113,7 +113,7 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='country-dropdown',
         options=[{'label': i, 'value': i} for i in df.country.unique()],
-        multi=True,
+        multi=False,
         value=['Australia']
     ),
    
