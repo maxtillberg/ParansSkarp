@@ -112,7 +112,7 @@ app.layout = html.Div(children=[
         value=['Australia']
     ),
 
-    dcc.Graph(id='timeseries-graph')
+    dcc.Graph(id='timeseries-graph'),
     
     dcc.Graph(
         id='flyingdog',
