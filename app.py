@@ -16,7 +16,6 @@ from textwrap import dedent
 
 df_test = pd.read_csv('testspektra.csv')
 
-
 # Gapminder dataset GAPMINDER.ORG, CC-BY LICENSE
 url = "https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv"
 df = pd.read_csv(url)
@@ -98,14 +97,14 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='droplista',
         options=[
-            {'label': 'Unfiltered daylight', 'value': 'UFD_df'},
-            {'label': u'Daylight through Parans 50m', 'value': 'P50M_df'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG_df'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG_df'},
-            {'label': 'Cool white LED', 'value': 'CLED_df'},
-            {'label': 'Warm white LED', 'value': 'WLED_df'}
+            {'label': 'Unfiltered daylight', 'value': 'UFD'},
+            {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
+            {'label': 'Cool white LED', 'value': 'CLED'},
+            {'label': 'Warm white LED', 'value': 'WLED'}
         ],
-        value=['UFD_df'],
+        value=['UFD'],
         multi=True
     ),
     
@@ -113,8 +112,7 @@ app.layout = html.Div(children=[
     
     
     dcc.Graph(
-        id='flyingdog',
-        figure=Spectra_fig
+        id='spektra'
     ),
 
     dcc.Dropdown(
@@ -163,6 +161,37 @@ def update_graph(country_values):
             xaxis={'title': 'Year'},
             yaxis={'title': 'GDP Per Capita'},
             margin={'l': 60, 'b': 50, 't': 80, 'r': 0},
+            hovermode='closest'
+        )
+    } 
+ 
+ 
+ @app.callback(
+    dash.dependencies.Output('spektra', 'figure'),
+    [dash.dependencies.Input('droplista', 'value')])
+def update_graph(vald_data):
+    df_val = df_test[vald_data]
+    df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
+
+    return {
+        'data': [go.Scatter(
+            x=df_val.Wavelength_nm,
+            y=df_val[resultat],
+#            text="Continent: " +
+#                  f"{dff[dff['country'] == country]['continent'].unique()[0]}",
+            mode='lines',
+            name=resultat,
+            marker={
+                'size': 15,
+                'opacity': 0.5,
+                'line': {'width': 0.5, 'color': 'white'}
+            }
+        ) for resultat in vald_data],
+        'layout': go.Layout(
+            title="GDP over time, by country",
+#            xaxis={'title': 'Year'},
+#            yaxis={'title': 'GDP Per Capita'},
+#            margin={'l': 60, 'b': 50, 't': 80, 'r': 0},
             hovermode='closest'
         )
     } 
