@@ -8,11 +8,6 @@ from textwrap import dedent
 
 ########### Get Data
 
-#df = pd.read_csv(
-#    'https://gist.githubusercontent.com/chriddyp/'
-#    'c78bf172206ce24f77d6363a2d754b59/raw/'
-#    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
- #   'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
 
@@ -71,14 +66,13 @@ WLED = go.Scatter(
     marker={'color':'blue'}
 )
 
-#Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
+
 Spectra_data = [UFD, P50M, TG, SPG, CLED, WLED]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
 )
 
-#Spectra_fig = go.Figure(data=[UFD_df, P50M_df], layout=Spectra_layout)
 Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
 ########### Display the chart
