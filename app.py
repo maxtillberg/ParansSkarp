@@ -105,14 +105,6 @@ app.layout = html.Div(children=[
     
     html.Div(id='my-div'),
     
-     dcc.Dropdown(
-        id='country-dropdown',
-        options=[{'label': i, 'value': i} for i in df.country.unique()],
-        multi=True,
-        value=['Australia']
-    ),
-
-    dcc.Graph(id='timeseries-graph'),
     
     dcc.Graph(
         id='flyingdog',
