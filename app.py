@@ -8,8 +8,14 @@ from textwrap import dedent
 
 ########### Get Data
 
+#df = pd.read_csv(
+#    'https://gist.githubusercontent.com/chriddyp/'
+#    'c78bf172206ce24f77d6363a2d754b59/raw/'
+#    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
+ #   'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
+
 
 # Gapminder dataset GAPMINDER.ORG, CC-BY LICENSE
 url = "https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv"
@@ -23,42 +29,42 @@ df = df.rename(index=str, columns={"pop": "population",
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-UFD = go.Scatter(
+UFD_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.UFD,
     mode = 'lines',
     name='UFD',
     marker={'color':'red'}
 )
-P50M = go.Scatter(
+P50M_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.P50M,
     mode = 'lines',
     name='P50M',
     marker={'color':'blue'}
 )
-TG = go.Scatter(
+TG_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.TG,
     mode = 'lines',
     name='TG',
     marker={'color':'blue'}
 )
-SPG = go.Scatter(
+SPG_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.SPG,
     mode = 'lines',
     name='SPG',
     marker={'color':'blue'}
 )
-CLED = go.Scatter(
+CLED_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.CLED,
     mode = 'lines',
     name='CLED',
     marker={'color':'blue'}
 )
-WLED = go.Scatter(
+WLED_df = go.Scatter(
     x=df_test.Wavelength_nm,
     y=df_test.WLED,
     mode = 'lines',
@@ -66,13 +72,14 @@ WLED = go.Scatter(
     marker={'color':'blue'}
 )
 
-
-Spectra_data = [UFD, P50M, TG, SPG, CLED, WLED]
+Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df]
+#Spectra_data = [UFD_df, P50M_df, TG_df, SPG_df, CLED_df, WLED_df]
 Spectra_layout = go.Layout(
     barmode='group',
     title = 'Liiiiight!!!'
 )
 
+#Spectra_fig = go.Figure(data=[UFD_df, P50M_df], layout=Spectra_layout)
 Spectra_fig = go.Figure(data=Spectra_data, layout=Spectra_layout)
 
 ########### Display the chart
@@ -91,28 +98,29 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='droplista',
         options=[
-            {'label': 'Unfiltered daylight', 'value': 'UFD'},
-            {'label': u'Daylight through Parans 50m', 'value': 'P50M'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG'},
-            {'label': 'Cool white LED', 'value': 'CLED'},
-            {'label': 'Warm white LED', 'value': 'WLED'}
+            {'label': 'Unfiltered daylight', 'value': 'UFD_df'},
+            {'label': u'Daylight through Parans 50m', 'value': 'P50M_df'},
+            {'label': 'Daylight through 2-pane thermal glass', 'value': 'TG_df'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'SPG_df'},
+            {'label': 'Cool white LED', 'value': 'CLED_df'},
+            {'label': 'Warm white LED', 'value': 'WLED_df'}
         ],
-        value=['UFD'],
-        multi=False
+        value=['UFD_df'],
+        multi=True
     ),
     
     html.Div(id='my-div'),
     
     
     dcc.Graph(
-        id='spektra'
+        id='flyingdog',
+        figure=Spectra_fig
     ),
 
     dcc.Dropdown(
         id='country-dropdown',
         options=[{'label': i, 'value': i} for i in df.country.unique()],
-        multi=False,
+        multi=True,
         value=['Australia']
     ),
    
@@ -140,6 +148,8 @@ def update_graph(country_values):
         'data': [go.Scatter(
             x=dff[dff['country'] == country]['year'],
             y=dff[dff['country'] == country]['GDP_per_capita'],
+            text="Continent: " +
+                  f"{dff[dff['country'] == country]['continent'].unique()[0]}",
             mode='lines+markers',
             name=country,
             marker={
@@ -156,26 +166,6 @@ def update_graph(country_values):
             hovermode='closest'
         )
     } 
- 
- 
-#@app.callback(
-#   dash.dependencies.Output('spektra', 'figure'),
-#    [dash.dependencies.Input('droplista', 'value')])
-#def update_graph(vald_data):
-#    df_val = df_test[vald_data]
-# #   df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
-#
- #   return {
- #       'data': go.Scatter(
-#            x=df_test.Wavelength_nm,
- #           y=df_test[vald_data],
- #           mode='lines'
- #           }
- #       ) ,
- #       'layout': go.Layout(
- #           title="GDP over time, by country"
- #       )
- #   } 
  
  
 ########### Run app!
