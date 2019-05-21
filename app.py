@@ -158,31 +158,24 @@ def update_graph(country_values):
     } 
  
  
-# @app.callback(
- #   dash.dependencies.Output('spektra', 'figure'),
-#    [dash.dependencies.Input('droplista', 'value')])
-#def update_graph(vald_data):
-#    df_val = df_test[vald_data]
-#    df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
-#
-#    return {
- #       'data': go.Scatter(
- #           x=df_val.Wavelength_nm,
- #           y=df_val.UFD,
- #           mode='lines',
- #           name="UDUDUD",
- #           marker={
- #               'size': 15,
- #               'opacity': 0.5,
- #               'line': {'width': 0.5, 'color': 'white'}
- #           }
-#        ) ,
- #       'layout': go.Layout(
- #           title="GDP over time, by country",
-#            xaxis={'title': 'Wavelength [nm]'},
-#            yaxis={'title': 'Y-axel'}
-#        )
-#    } 
+@app.callback(
+   dash.dependencies.Output('spektra', 'figure'),
+    [dash.dependencies.Input('droplista', 'value')])
+def update_graph(vald_data):
+    df_val = df_test[vald_data]
+ #   df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
+
+    return {
+        'data': go.Scatter(
+            x=df_test.Wavelength_nm,
+            y=df_test[vald_data],
+            mode='lines'
+            }
+        ) ,
+        'layout': go.Layout(
+            title="GDP over time, by country"
+        )
+    } 
  
  
 ########### Run app!
