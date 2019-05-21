@@ -8,15 +8,21 @@ from textwrap import dedent
 
 ########### Get Data
 
-df = pd.read_csv(
-    'https://gist.githubusercontent.com/chriddyp/'
-    'c78bf172206ce24f77d6363a2d754b59/raw/'
-    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
-    'usa-agricultural-exports-2011.csv')
+#df = pd.read_csv(
+#    'https://gist.githubusercontent.com/chriddyp/'
+#    'c78bf172206ce24f77d6363a2d754b59/raw/'
+#    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
+ #   'usa-agricultural-exports-2011.csv')
 
 df_test = pd.read_csv('testspektra.csv')
 
 
+# Gapminder dataset GAPMINDER.ORG, CC-BY LICENSE
+url = "https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv"
+df = pd.read_csv(url)
+df = df.rename(index=str, columns={"pop": "population",
+                                   "lifeExp": "life_expectancy",
+                                   "gdpPercap": "GDP_per_capita"})
 
 
 ########### Set up the chart
