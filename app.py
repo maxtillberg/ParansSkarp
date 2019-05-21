@@ -112,7 +112,7 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='country-dropdown',
         options=[{'label': i, 'value': i} for i in df.country.unique()],
-        multi=True,
+        multi=False,
         value=['Australia']
     ),
    
@@ -158,24 +158,24 @@ def update_graph(country_values):
     } 
  
  
-@app.callback(
-   dash.dependencies.Output('spektra', 'figure'),
-    [dash.dependencies.Input('droplista', 'value')])
-def update_graph(vald_data):
-    df_val = df_test[vald_data]
- #   df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
-
-    return {
-        'data': go.Scatter(
-            x=df_test.Wavelength_nm,
-            y=df_test[vald_data],
-            mode='lines'
-            }
-        ) ,
-        'layout': go.Layout(
-            title="GDP over time, by country"
-        )
-    } 
+#@app.callback(
+#   dash.dependencies.Output('spektra', 'figure'),
+#    [dash.dependencies.Input('droplista', 'value')])
+#def update_graph(vald_data):
+#    df_val = df_test[vald_data]
+# #   df_val.assign(Wavelength_nm=df_test.Wavelength_nm)
+#
+ #   return {
+ #       'data': go.Scatter(
+#            x=df_test.Wavelength_nm,
+ #           y=df_test[vald_data],
+ #           mode='lines'
+ #           }
+ #       ) ,
+ #       'layout': go.Layout(
+ #           title="GDP over time, by country"
+ #       )
+ #   } 
  
  
 ########### Run app!
