@@ -40,7 +40,7 @@ app.layout = html.Div(children=[
         multi=True
     ),
 
-    #html.Div(id='my-div'),
+    html.Div(id='my-div'),
 
 
     dcc.Graph(
@@ -52,12 +52,12 @@ app.layout = html.Div(children=[
 
 ########### Callbacks!
 
-#@app.callback(
-#    Output(component_id='my-div', component_property='children'),
-#    [Input(component_id='droplista', component_property='value')]
-#)
-#def update_output_div(input_value):
-#    return 'You\'ve entered "{}"'.format(input_value)
+@app.callback(
+    Output(component_id='my-div', component_property='children'),
+    [Input(component_id='droplista', component_property='value')]
+)
+def update_output_div(input_value):
+    return 'You\'ve entered "{}"'.format(input_value)
 
 
 @app.callback(
@@ -79,7 +79,7 @@ def update_graph(valda_serier):
 
 
         'layout': go.Layout(
-            title="Daylight specrum through filters",
+            title="Daylight spectrum through filters",
             xaxis={'title': 'Frequency [nm]'},
             yaxis={'title': 'Relative energy intensity [%]'},
             showlegend=True
