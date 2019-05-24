@@ -45,7 +45,9 @@ app.layout = html.Div(children=[
 
     dcc.Graph(
         id='spektra'
-    )
+    ),
+
+
 
 ]
 )
@@ -69,20 +71,49 @@ def update_graph(valda_serier):
     cols.extend(['Wavelength_nm'])
     df_vald = df_test[cols]
 
-    return {
-        'data': [go.Scatter(
+    trace=[]
+
+    for serie in valda_serier:
+        trace=trace+[go.Scatter(
             x=df_vald['Wavelength_nm'],
             y=df_vald[serie],
             mode='lines',
             name=serie
-        ) for serie in valda_serier],
+        )]
+
+    trace_text=go.Scatter(
+    x=[550],
+    y=[-0.15],
+    text=['Visible spectra'],
+    mode='text',
+    showlegend=False
+    )
+
+    trace.extend([trace_text])
+
+    return {
+        'data': trace,
 
 
         'layout': go.Layout(
-            title="Daylight spectrum through filters",
+            title="Daylight specrum through filters",
             xaxis={'title': 'Frequency [nm]'},
             yaxis={'title': 'Relative energy intensity [%]'},
-            showlegend=True
+            showlegend=True,
+            shapes=[dict(type='rect',
+                    layer='below',
+                    xref='x',
+                    yref='paper',
+                    x0=380,
+                    y0=0,
+                    x1=740,
+                    y1=1,
+                    opacity=0.3,
+                    fillcolor='#d3d3d3',
+                    line=dict(width=0)
+                )]
+
+
         )
     }
 
