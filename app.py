@@ -7,7 +7,7 @@ import pandas as pd
 
 ########### Get Data
 
-df_test = pd.read_csv('testspektra.csv')
+df_skarp = pd.read_csv('spektraldata_v2.csv')
 
 ########### Set up the chart
 
@@ -20,7 +20,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 app.layout = html.Div(children=[
-    html.H1('Header'),
+    html.H1('Relative spectral power'),
 
 
 
@@ -29,18 +29,26 @@ app.layout = html.Div(children=[
     dcc.Dropdown(
         id='droplista',
         options=[
-            {'label': 'Unfiltered daylight', 'value': 'Unfiltered Daylight'},
-            {'label': u'Daylight through Parans 50m', 'value': 'Parans 50 m'},
-            {'label': 'Daylight through 2-pane thermal glass', 'value': 'Thermal Glass'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'Solar Protection Glass'},
-            {'label': 'Cool white LED', 'value': 'Cool White LED'},
-            {'label': 'Warm white LED', 'value': 'Warm White LED'}
+            #{'label': 'beta_Unfiltered daylight', 'value': 'Unfiltered Daylight'},
+            #{'label': u'beta_Daylight through Parans 50m', 'value': 'Parans 50 m'},
+            #{'label': 'beta_Daylight through 2-pane thermal glass', 'value': 'Thermal Glass'},
+            #{'label': 'beta_Daylight through 2-pane solar protection glass', 'value': 'Solar Protection Glass'},
+            #{'label': 'beta_Cool white LED', 'value': 'Cool White LED'},
+            #{'label': 'beta_Warm white LED', 'value': 'Warm White LED'},
+
+            {'label': 'Unfiltered daylight', 'value': 'Unfiltered daylight'},
+            {'label': 'Daylight through Parans 54 m', 'value': 'Parans 54m'},
+            {'label': 'Daylight through Parans 25 m', 'value': 'Parans 25m'},
+            {'label': 'Flourecent lamp FL5', 'value': 'Fluorescent lamp FL5'},
+            {'label': 'Cool white LED', 'value': 'LED 2700 K'},
+            {'label': 'Warm white LED', 'value': 'LED 4000 K'},
+            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'Daylight through glass'}
         ],
-        value=['Unfiltered Daylight'],
+        value=['Unfiltered daylight'],
         multi=True
     ),
 
-    html.Div(id='my-div'),
+
 
 
     dcc.Graph(
@@ -48,18 +56,21 @@ app.layout = html.Div(children=[
     ),
 
 
+    #html.Div(id='my-div', style={'marginBottom': 50, 'marginTop': 25}),
 
+    html.Div([html.P('Source: ... ... ...')],
+    style={'marginBottom': 50, 'marginTop': 25})
 ]
 )
 
 ########### Callbacks!
 
-@app.callback(
-    Output(component_id='my-div', component_property='children'),
-    [Input(component_id='droplista', component_property='value')]
-)
-def update_output_div(input_value):
-    return 'You\'ve entered "{}"'.format(input_value)
+#@app.callback(
+#    Output(component_id='my-div', component_property='children'),
+#    [Input(component_id='droplista', component_property='value')]
+#)
+#def update_output_div(input_value):
+#    return 'You\'ve entered "{}"'.format(input_value)
 
 
 @app.callback(
@@ -69,7 +80,7 @@ def update_graph(valda_serier):
 
     cols=valda_serier.copy()
     cols.extend(['Wavelength_nm'])
-    df_vald = df_test[cols]
+    df_vald = df_skarp[cols]
 
     trace=[]
 
@@ -83,7 +94,7 @@ def update_graph(valda_serier):
 
     trace_text=go.Scatter(
     x=[550],
-    y=[-0.15],
+    y=[-0.12],
     text=['Visible spectra'],
     mode='text',
     showlegend=False
@@ -96,9 +107,9 @@ def update_graph(valda_serier):
 
 
         'layout': go.Layout(
-            title="Daylight specrum through filters",
-            xaxis={'title': 'Frequency [nm]'},
-            yaxis={'title': 'Relative energy intensity [%]'},
+            title="Relative spectral power",
+            xaxis={'title': 'Frequency [nm]', 'range': [300,2500]},
+            yaxis={'title': 'Relative rpectral power [%]', 'range': [-0.19, 1.05]},
             showlegend=True,
             shapes=[dict(type='rect',
                     layer='below',
