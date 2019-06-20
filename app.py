@@ -42,7 +42,7 @@ app.layout = html.Div(children=[
             {'label': 'Flourecent lamp FL5', 'value': 'Fluorescent lamp FL5'},
             {'label': 'Cool white LED', 'value': 'LED 2700 K'},
             {'label': 'Warm white LED', 'value': 'LED 4000 K'},
-            {'label': 'Daylight through 2-pane solar protection glass', 'value': 'Daylight through glass'}
+            {'label': 'Daylight through modern solar protection glass', 'value': 'Daylight through glass'}
         ],
         value=['Unfiltered daylight'],
         multi=True
@@ -58,8 +58,8 @@ app.layout = html.Div(children=[
 
     #html.Div(id='my-div', style={'marginBottom': 50, 'marginTop': 25}),
 
-    html.Div([html.P('Source: ... ... ...')],
-    style={'marginBottom': 50, 'marginTop': 25})
+    #html.Div([html.P('Source: ... ... ...')],
+    #style={'marginBottom': 50, 'marginTop': 25})
 ]
 )
 
@@ -109,7 +109,7 @@ def update_graph(valda_serier):
         'layout': go.Layout(
             title="Relative spectral power",
             xaxis={'title': 'Frequency [nm]', 'range': [300,2500]},
-            yaxis={'title': 'Relative rpectral power [%]', 'range': [-0.19, 1.05]},
+            yaxis={'title': 'Relative spectral power [%]', 'range': [-0.19, 1.05]},
             showlegend=True,
             shapes=[dict(type='rect',
                     layer='below',
