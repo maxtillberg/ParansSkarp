@@ -1,7 +1,5 @@
-# How to deploy a simple Plotly Dash app on Heroku
+# Dash application displaying spectral distribution
 
-A full explanation is available on [Medium](https://medium.com/@austinlasseter/how-to-deploy-a-simple-plotly-dash-app-to-heroku-622a2216eb73).
+Dash application displaying relative spectral distribution from different lightsources.
+Developed by Bengt Dahlgren AB for Parans AB
 
-You can view the finished app on [Heroku](https://flying-dog.herokuapp.com/).
-
-**Note:** Plotly Dash apps can only be viewed in a modern browser (like Chrome or Mozilla). They won't render in antediluvian browsers such as Microsoft.
