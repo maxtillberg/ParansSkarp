@@ -58,8 +58,6 @@ app.layout = html.Div(children=[
 
     #html.Div(id='my-div', style={'marginBottom': 50, 'marginTop': 25}),
 
-    #html.Div([html.P('Source: ... ... ...')],
-    #style={'marginBottom': 50, 'marginTop': 25})
 ]
 )
 
