@@ -90,7 +90,7 @@ def update_graph(valda_serier):
             mode='lines',
             name=serie,
             line = dict(
-                color = ('rgb(22, 96, 167)'),
+                color = ('rgb(0,250,0)' if val="Parans 50 m" else 'rgb(250,0,0)' for val in options.value),
                 width = 4,)
         )]
 
