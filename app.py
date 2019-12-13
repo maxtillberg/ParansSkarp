@@ -89,7 +89,7 @@ def update_graph(valda_serier):
             hoverinfo="y",
             mode='lines',
             name=serie,
-            if value=['Unfiltered daylight']:
+            if name=serie:
                 line = dict(
                     color = ('rgb(22, 96, 167)'),
                     width = 4,)
