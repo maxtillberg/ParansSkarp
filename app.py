@@ -107,6 +107,7 @@ def update_graph(valda_serier):
 
         'layout': go.Layout(
             title="Relative spectral power",
+            colorway=['#fdae61', '#abd9e9', '#2c7bb6', '#abd9e9', '#2c7bb6'],
             xaxis={'title': 'Frequency [nm]', 'range': [300,2500]},
             yaxis={'title': 'Relative spectral power [%]', 'range': [-0.19, 1.05]},
             showlegend=True,
