@@ -89,10 +89,9 @@ def update_graph(valda_serier):
             hoverinfo="y",
             mode='lines',
             name=serie,
-            if name=serie:
-                line = dict(
-                    color = ('rgb(22, 96, 167)'),
-                    width = 4,)
+            line = dict(
+                color = ('rgb(22, 96, 167)'),
+                width = 4,)
         )]
 
     trace_text=go.Scatter(
