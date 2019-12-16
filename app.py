@@ -13,6 +13,16 @@ df_skarp = pd.read_csv('spektraldata_v2.csv')
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+# Added color definition per data type. As seen below, both rgb and colornames work.
+colors = {
+            'Unfiltered daylight':'black',
+            'Parans 54m':'blue',
+            'Parans 25m':'red',
+            'Fluorescent lamp FL5':'green',
+            'LED 2700 K':'yellow',
+            'LED 4000 K':'rgb(0,125,125)',
+            'Daylight through glass':'rgb(125,125,0)',
+}
 
 ########### Display the chart
 
@@ -75,13 +85,10 @@ app.layout = html.Div(children=[
     dash.dependencies.Output('spektra', 'figure'),
     [dash.dependencies.Input('droplista', 'value')])
 def update_graph(valda_serier):
-
     cols=valda_serier.copy()
     cols.extend(['Wavelength_nm'])
     df_vald = df_skarp[cols]
-
     trace=[]
-
     for serie in valda_serier:
         trace=trace+[go.Scatter(
             x=df_vald['Wavelength_nm'],
@@ -90,8 +97,7 @@ def update_graph(valda_serier):
             mode='lines',
             name=serie,
             line = dict(
-                #color = ('rgb(0,250,0)' if val="Parans 50 m" else 'rgb(250,0,0)' for val in options.value),
-                color='royalblue',
+                color = (colors[serie]), # colors['Unfiltered daylight'] = 'black', See Colors just below css import
                 width = 4,)
         )]
 
