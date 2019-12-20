@@ -98,7 +98,7 @@ def update_graph(valda_serier):
             name=serie,
             line = dict(
                 color = (colors[serie]), # colors['Unfiltered daylight'] = 'black', See Colors just below css import
-                width = 4,)
+                width = 2,)
         )]
 
     trace_text=go.Scatter(
