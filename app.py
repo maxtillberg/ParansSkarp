@@ -15,13 +15,13 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Added color definition per data type. As seen below, both rgb and colornames work.
 colors = {
-            'Unfiltered daylight':'black',
-            'Parans 54m':'blue',
-            'Parans 25m':'red',
-            'Fluorescent lamp FL5':'green',
-            'LED 2700 K':'yellow',
-            'LED 4000 K':'rgb(0,125,125)',
-            'Daylight through glass':'rgb(125,125,0)',
+            'Unfiltered daylight':'rgb(0,0,0)',
+            'Parans 54m':'rgb(247,190,75)',
+            'Parans 25m':'rgb(239,122,92)',
+            'Fluorescent lamp FL5':'rgb(0,167,151)',
+            'LED 2700 K':'rgb(51,37,85)',
+            'LED 4000 K':'rgb(233,68,130)',
+            'Daylight through glass':'rgb(149,200,232)',
 }
 
 ########### Display the chart
