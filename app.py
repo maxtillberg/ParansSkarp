@@ -93,7 +93,7 @@ def update_graph(valda_serier):
         trace=trace+[go.Scatter(
             x=df_vald['Wavelength_nm'],
             y=df_vald[serie],
-            hoverinfo="y",
+            hoverinfo="n",
             mode='lines',
             name=serie,
             line = dict(
