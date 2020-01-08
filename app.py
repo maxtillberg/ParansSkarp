@@ -19,7 +19,7 @@ colors = {
             'Parans 54m':'rgb(247,190,75)',
             'Parans 25m':'rgb(239,122,92)',
             'Fluorescent lamp FL5':'rgb(0,167,151)',
-            'LED 2700 K':'rgb(51,37,85)',
+            'LED 2700 K':'rgb(109,79,187)',
             'LED 4000 K':'rgb(233,68,130)',
             'Daylight through glass':'rgb(149,200,232)',
 }
