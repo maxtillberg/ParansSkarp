@@ -104,6 +104,7 @@ def update_graph(valda_serier):
     trace_text=go.Scatter(
     x=[550],
     y=[-0.12],
+    hoverinfo="skip",            
     text=['Visible spectra'],
     mode='text',
     showlegend=False
