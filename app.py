@@ -50,8 +50,8 @@ app.layout = html.Div(children=[
             {'label': 'Daylight through Parans 54 m', 'value': 'Parans 54m'},
             {'label': 'Daylight through Parans 25 m', 'value': 'Parans 25m'},
             {'label': 'Flourecent lamp FL5', 'value': 'Fluorescent lamp FL5'},
-            {'label': 'Cool white LED', 'value': 'LED 2700 K'},
-            {'label': 'Warm white LED', 'value': 'LED 4000 K'},
+            {'label': 'Cool white LED', 'value': 'Cool white LED'},
+            {'label': 'Warm white LED', 'value': 'Warm white LED'},
             {'label': 'Daylight through modern solar protection glass', 'value': 'Daylight through glass'}
         ],
         value=['Unfiltered daylight'],
