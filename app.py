@@ -19,8 +19,8 @@ colors = {
             'Parans 54m':'rgb(247,190,75)',
             'Parans 25m':'rgb(239,122,92)',
             'Fluorescent lamp FL5':'rgb(0,167,151)',
-            'LED 2700 K':'rgb(109,79,187)',
-            'LED 4000 K':'rgb(233,68,130)',
+            'Cool white LED':'rgb(109,79,187)',
+            'Warm white LED':'rgb(233,68,130)',
             'Daylight through glass':'rgb(149,200,232)',
 }
 
@@ -31,8 +31,6 @@ server = app.server
 
 app.layout = html.Div(children=[
     html.H1('Relative spectral power'),
-
-
 
     html.Label('Choose Lightsource'),
 
@@ -58,14 +56,9 @@ app.layout = html.Div(children=[
         multi=True
     ),
 
-
-
-
     dcc.Graph(
         id='spektra'
     ),
-
-
     #html.Div(id='my-div', style={'marginBottom': 50, 'marginTop': 25}),
 
 ]
@@ -79,7 +72,6 @@ app.layout = html.Div(children=[
 #)
 #def update_output_div(input_value):
 #    return 'You\'ve entered "{}"'.format(input_value)
-
 
 @app.callback(
     dash.dependencies.Output('spektra', 'figure'),
@@ -114,8 +106,6 @@ def update_graph(valda_serier):
 
     return {
         'data': trace,
-
-
         'layout': go.Layout(
             title="Relative spectral power",
             xaxis={'title': 'Frequency [nm]', 'range': [300,2500]},
@@ -133,14 +123,11 @@ def update_graph(valda_serier):
                     fillcolor='#d3d3d3',
                     line=dict(width=0)
                 )]
-
-
         )
     }
 
 
 ########### Run app!
-
 
 if __name__ == '__main__':
     app.run_server()
